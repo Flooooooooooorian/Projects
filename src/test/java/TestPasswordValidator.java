@@ -89,11 +89,19 @@ public class TestPasswordValidator {
 
     @Test
     public void validatePasswordArrayTest(){
-        String[] passwordArray = {"Ha3","Ha3", "Ha", "H3", "a3", ""};
+        String[] passwordArray = {"Ha3!","Ha3", "Ha", "H3", "a3", ""};
         boolean[] validationArray = {true, true, false, false, false, false};
 
         assertArrayEquals(validationArray, PasswordValidator.validatePasswordArray(passwordArray, 3));
     }
 
-
+    @ParameterizedTest(name = "{0} has special Characters {1}")
+    @CsvSource({"password, false",
+                "password1, false",
+                "password!, true",
+                "pass word, true"})
+    public void validateSpecialCharacterTest(String password, boolean expected) {
+        boolean actual = PasswordValidator.validateSpecialCharacter(password);
+        assertEquals(expected, actual);
+    }
 }

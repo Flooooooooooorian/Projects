@@ -9,7 +9,18 @@ public class PasswordValidator {
     }
 
     public static boolean validatePassword(String password, int minLength) {
-        return validateLength(password, minLength) && validateDigits(password) && validateLowerLetter(password) && validateUpperLetter(password);
+        return validateLength(password, minLength) && validateDigits(password)
+                && validateLowerLetter(password) && validateUpperLetter(password)
+                && validateSpecialCharacter(password);
+    }
+
+    public static boolean validateSpecialCharacter(String password) {
+        for (char c : password.toCharArray()) {
+            if (!Character.isLetterOrDigit(c)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean validateLength(String password, int minLength){
