@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,6 +44,14 @@ public class TestPasswordValidator {
         //THEN
         assertFalse(test1);
         assertFalse(test2);
+
+    }
+    @ParameterizedTest (name="{1} shouldBeDigits {0}")
+    @CsvSource({"true, 1234567", "true, fzwuu23", "false, ufffg"})
+    public void validateDigitsTest(boolean expected, String password){
+
+        boolean actual = PasswordValidator.validateDigits(password);
+        assertEquals(expected, actual);
 
     }
 
