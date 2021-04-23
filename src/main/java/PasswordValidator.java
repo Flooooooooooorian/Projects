@@ -11,7 +11,16 @@ public class PasswordValidator {
     public static boolean validatePassword(String password, int minLength) {
         return validateLength(password, minLength) && validateDigits(password)
                 && validateLowerLetter(password) && validateUpperLetter(password)
-                && validateSpecialCharacter(password);
+                && validateSpecialCharacter(password) && validateWhitespace(password);
+    }
+
+    public static boolean validateWhitespace(String password) {
+        for (char c : password.toCharArray()) {
+            if (Character.isWhitespace(c)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static boolean validateSpecialCharacter(String password) {
@@ -51,7 +60,6 @@ public class PasswordValidator {
                 return true;
             }
         }
-
         return false;
     }
 
