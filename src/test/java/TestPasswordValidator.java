@@ -55,4 +55,14 @@ public class TestPasswordValidator {
 
     }
 
+    @ParameterizedTest (name="{1} Upper Letter should be {0}")
+    @CsvSource({"true, 123456HI7", "true, fzwuZZu23", "false, ufffg", "false, 273764","false, ?$5jdi","true, @928??H", "false, @!!§?%%"})
+    public void validateUpperLetterTest(boolean expected, String password){
+
+        boolean actual = PasswordValidator.validateUpperLetter(password);
+        assertEquals(expected, actual);
+    }
+
+
+
 }

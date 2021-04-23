@@ -13,5 +13,17 @@ public class PasswordValidator {
         return false;
     }
 
+    public static boolean validateUpperLetter(String password){
+        for (char c : password.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean validateLowerLetter(String password){
+        return false;
+    }
 
 }
