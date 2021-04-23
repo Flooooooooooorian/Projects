@@ -5,6 +5,13 @@ public class PasswordValidator {
     }
 
     public static boolean validateDigits(String password){
+        for (char c : password.toCharArray()) {
+            if (Character.isDigit(c)) {
+                return true;
+            }
+        }
         return false;
     }
+
+
 }
