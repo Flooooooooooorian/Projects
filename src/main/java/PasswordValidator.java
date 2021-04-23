@@ -23,6 +23,12 @@ public class PasswordValidator {
     }
 
     public static boolean validateLowerLetter(String password){
+        for (char c : password.toCharArray()) {
+            if (Character.isLowerCase(c)) {
+                return true;
+            }
+        }
+
         return false;
     }
 
