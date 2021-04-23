@@ -1,5 +1,13 @@
 public class PasswordValidator {
 
+    public static boolean[] validatePasswordArray(String[] passwords, int minLength) {
+        boolean[] validation = new boolean[passwords.length];
+        for (int i = 0; i < passwords.length; i++){
+                validation[i] =validatePassword(passwords[i], minLength);
+        }
+        return validation;
+    }
+
     public static boolean validatePassword(String password, int minLength) {
         return validateLength(password, minLength) && validateDigits(password) && validateLowerLetter(password) && validateUpperLetter(password);
     }
