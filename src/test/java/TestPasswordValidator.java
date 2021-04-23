@@ -73,4 +73,18 @@ public class TestPasswordValidator {
         assertEquals(expected, actual);
     }
 
+    @ParameterizedTest (name="Password: \"{1}\" with minLenght: {2} should be: {0}")
+    @CsvSource({"true, Ha3, 2",
+            "true, Ha3, 3",
+            "true, Ha3, 0",
+            "false, Ha3, 8",
+            "false, Ha, 2",
+            "false, H3, 2",
+            "false, a3, 2",
+            "false, '', 0"})
+    public void validatePasswordTest(boolean expected, String password, int minLenght){
+        boolean actual = PasswordValidator.validatePassword(password, minLenght);
+        assertEquals(expected, actual);
+    }
+
 }

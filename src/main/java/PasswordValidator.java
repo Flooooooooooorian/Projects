@@ -1,5 +1,9 @@
 public class PasswordValidator {
 
+    public static boolean validatePassword(String password, int minLength) {
+        return validateLength(password, minLength) && validateDigits(password) && validateLowerLetter(password) && validateUpperLetter(password);
+    }
+
     public static boolean validateLength(String password, int minLength){
         return password.length() >= minLength;
     }
