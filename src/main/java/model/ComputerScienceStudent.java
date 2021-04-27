@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class ComputerScienceStudent extends Student {
+public class ComputerScienceStudent extends Student{
 
     public ComputerScienceStudent(String id, String givenName, String surName) {
         this.id = id;
@@ -13,5 +13,10 @@ public class ComputerScienceStudent extends Student {
     @Override
     public String getCourse() {
         return "Computer Science";
+    }
+
+    @Override
+    public void move(String distance) {
+        System.out.println("walked: " + distance);
     }
 }

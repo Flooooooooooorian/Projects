@@ -12,4 +12,9 @@ public class HistoryStudent extends Student{
     public String getCourse() {
         return "History";
     }
+
+    @Override
+    public void move(String distance) {
+            System.out.println("walked: " + distance);
+    }
 }
