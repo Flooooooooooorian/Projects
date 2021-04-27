@@ -1,6 +1,6 @@
 package model;
 
-interface ableToMove {
+interface AbleToMove {
 
     void move(String distance);
 }

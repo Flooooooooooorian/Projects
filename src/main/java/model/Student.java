@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public abstract class Student implements ableToMove{
+public abstract class Student implements AbleToMove {
 
     protected String id;
     protected String givenName;
