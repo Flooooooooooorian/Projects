@@ -6,15 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ComputerScienceStudentTest {
 
-    ComputerScienceStudent computerScienceStudent = new ComputerScienceStudent();
-
-    @BeforeEach
-    void setUpStudent() {
-        computerScienceStudent.setId("id123");
-        computerScienceStudent.setGivenName("Florian");
-        computerScienceStudent.setSurName("Weber");
-    }
-
     @Test
     public void testStudentEquals() {
         ComputerScienceStudent computerScienceStudent_old = new ComputerScienceStudent("123", "Florian", "Weber");
@@ -22,11 +13,12 @@ public class ComputerScienceStudentTest {
         ComputerScienceStudent computerScienceStudent_old_me = new ComputerScienceStudent("123", "Florian", "Neuer Nachname");
 
         assertFalse(computerScienceStudent_old.equals(computerScienceStudent_new));
-        assertTrue(computerScienceStudent_new.equals(computerScienceStudent_old));
+        assertTrue(computerScienceStudent_old_me.equals(computerScienceStudent_old));
     }
 
     @Test
     public void testStudentSetId() {
+        ComputerScienceStudent computerScienceStudent = new ComputerScienceStudent("id123", "Florian", "Weber");
         assertEquals("id123", computerScienceStudent.getId());
         computerScienceStudent.setId("id456");
         assertEquals("id456", computerScienceStudent.getId());
@@ -34,11 +26,13 @@ public class ComputerScienceStudentTest {
 
     @Test
     public void testStudentGetId() {
+        ComputerScienceStudent computerScienceStudent = new ComputerScienceStudent("id123", "Florian", "Weber");
         assertEquals("id123", computerScienceStudent.getId());
     }
 
     @Test
     public void testStudentSetGivenName() {
+        ComputerScienceStudent computerScienceStudent = new ComputerScienceStudent("123", "Florian", "Weber");
         assertEquals("Florian", computerScienceStudent.getGivenName());
         computerScienceStudent.setGivenName("Hans");
         assertEquals("Hans", computerScienceStudent.getGivenName());
@@ -46,11 +40,13 @@ public class ComputerScienceStudentTest {
 
     @Test
     public void testStudentGetGivenName() {
+        ComputerScienceStudent computerScienceStudent = new ComputerScienceStudent("123", "Florian", "Weber");
         assertEquals("Florian", computerScienceStudent.getGivenName());
     }
 
     @Test
     public void testStudentSetSurName() {
+        ComputerScienceStudent computerScienceStudent = new ComputerScienceStudent("123", "Florian", "Weber");
         assertEquals("Weber", computerScienceStudent.getSurName());
         computerScienceStudent.setSurName("Müller");
         assertEquals("Müller", computerScienceStudent.getSurName());
@@ -58,6 +54,7 @@ public class ComputerScienceStudentTest {
 
     @Test
     public void testStudentGetSurName() {
+        ComputerScienceStudent computerScienceStudent = new ComputerScienceStudent("123", "Florian", "Weber");
         assertEquals("Weber", computerScienceStudent.getSurName());
     }
 }

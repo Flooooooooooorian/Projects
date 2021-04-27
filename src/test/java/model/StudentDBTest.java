@@ -42,7 +42,9 @@ class StudentDBTest {
 
         StudentDB db = new StudentDB(computerScienceStudents);
 
-        assertEquals("1_Weber_Florian\n2_B_b\n3_C_c\n", db.toString());
+        assertEquals("Student{id='1', givenName='Florian', surName='Weber'}\n" +
+                "Student{id='2', givenName='b', surName='B'}\n" +
+                "Student{id='3', givenName='c', surName='C'}\n", db.toString());
     }
 
     @Test

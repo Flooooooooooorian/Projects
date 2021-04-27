@@ -1,22 +1,62 @@
 package model;
 
-public interface Student {
+import java.util.Objects;
 
-    String getId();
+public abstract class Student {
 
-    void setId(String id);
+    protected String id;
+    protected String givenName;
+    protected String surName;
 
-    String getGivenName();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(id, student.id);
+    }
 
-    void setGivenName(String givenName);
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
-    String getSurName();
+    public String getId() {
+        return id;
+    }
 
-    void setSurName(String surName);
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    String getCourse();
+    public String getGivenName() {
+        return givenName;
+    }
 
-    default void printCourse() {
+    public void setGivenName(String givenName) {
+        this.givenName = givenName;
+    }
+
+    public String getSurName() {
+        return surName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
+    }
+
+    public abstract String getCourse();
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + id + '\'' +
+                ", givenName='" + givenName + '\'' +
+                ", surName='" + surName + '\'' +
+                '}';
+    }
+
+    void printCourse() {
         System.out.println(this.getCourse());
     }
 }
