@@ -1,5 +1,7 @@
-package model;
+package Student;
 
+import Student.ComputerScienceStudent;
+import Student.StudentDB;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

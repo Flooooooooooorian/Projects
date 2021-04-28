@@ -1,6 +1,4 @@
-package model;
-
-import java.util.Objects;
+package Student;
 
 public class ComputerScienceStudent extends Student{
 

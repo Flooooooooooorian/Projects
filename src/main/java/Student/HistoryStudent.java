@@ -1,4 +1,4 @@
-package model;
+package Student;
 
 public class HistoryStudent extends Student{
 

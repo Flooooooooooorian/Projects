@@ -1,5 +1,6 @@
-import model.ComputerScienceStudent;
-import org.junit.jupiter.api.BeforeEach;
+package Student;
+
+import Student.ComputerScienceStudent;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

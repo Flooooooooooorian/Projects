@@ -1,4 +1,4 @@
-package model;
+package Student;
 
 public class PKW implements AbleToMove {
     @Override
