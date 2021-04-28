@@ -1,9 +1,11 @@
+package PasswordValidator;
+
 public class PasswordValidator {
 
     public static boolean[] validatePasswordArray(String[] passwords, int minLength) {
         boolean[] validation = new boolean[passwords.length];
-        for (int i = 0; i < passwords.length; i++){
-                validation[i] =validatePassword(passwords[i], minLength);
+        for (int i = 0; i < passwords.length; i++) {
+            validation[i] = validatePassword(passwords[i], minLength);
         }
         return validation;
     }

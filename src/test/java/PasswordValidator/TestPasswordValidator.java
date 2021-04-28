@@ -1,6 +1,8 @@
+package PasswordValidator;
+
+import PasswordValidator.PasswordValidator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestPasswordValidator {
 
-    @ParameterizedTest (name="Password \"{0}\" with length {1} should be {2}")
+    @ParameterizedTest(name = "Password \"{0}\" with length {1} should be {2}")
     @CsvSource({"12345789, 4 , true",
             "12345789, 8, true",
             "'', 0, true",
@@ -66,9 +68,9 @@ public class TestPasswordValidator {
 
     @ParameterizedTest(name = "{0} has special Characters {1}")
     @CsvSource({"password, false",
-                "password1, false",
-                "password!, true",
-                "pass word, true"})
+            "password1, false",
+            "password!, true",
+            "pass word, true"})
     public void validateSpecialCharacterTest(String password, boolean expected) {
         boolean actual = PasswordValidator.validateSpecialCharacter(password);
         assertEquals(expected, actual);
@@ -84,5 +86,5 @@ public class TestPasswordValidator {
         boolean actual = PasswordValidator.validateWhitespace (password);
         assertEquals(expected, actual);
     }
-    
+
 }
