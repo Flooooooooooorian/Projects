@@ -20,10 +20,16 @@ public class AnimalList {
 
     public void remove(Animal animal) {
         AnimalListItem item = head;
+        if (head == null) {
+            return;
+        }
 
         while (item.getNext() != null) {
             if (item.getNext().getValue().equals(animal)) {
                 item.setNext(item.getNext().getNext());
+            }
+            if (item.getNext() != null) {
+                item = item.getNext();
             }
         }
 

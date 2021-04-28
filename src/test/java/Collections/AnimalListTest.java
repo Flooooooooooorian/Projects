@@ -18,6 +18,24 @@ class AnimalListTest {
 
     @Test
     void remove() {
+        Animal a = new Animal("Affe");
+        Animal b = new Animal("Pferd");
+        Animal c = new Animal("Affe");
+        Animal d = new Animal("Hund");
+        Animal e = new Animal("Affe");
+        AnimalList a_list = new AnimalList();
+
+        a_list.add(a);
+        a_list.add(b);
+        a_list.add(c);
+        a_list.add(d);
+        a_list.add(e);
+
+        assertEquals("Affe -> Pferd -> Affe -> Hund -> Affe", a_list.toString());
+
+        a_list.remove(a);
+
+        assertEquals("Pferd -> Hund", a_list.toString());
     }
 
     @Test
