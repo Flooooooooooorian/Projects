@@ -13,7 +13,7 @@ class AnimalListTest {
 
         a_list.add(a);
 
-        assertEquals("", a_list.toString());
+        assertEquals("Pferd", a_list.toString());
     }
 
     @Test
@@ -32,6 +32,6 @@ class AnimalListTest {
         a_list.add(b);
         a_list.add(c);
 
-        assertEquals("", a_list.toString());
+        assertEquals("Pferd -> Affe -> Katze", a_list.toString());
     }
 }
