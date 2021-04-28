@@ -8,7 +8,7 @@ class AnimalListItemTest {
 
     @Test
     void getValue() {
-        Animal a = new Animal();
+        Animal a = new Animal("Pferd");
         AnimalListItem a_item = new AnimalListItem(a);
 
         assertEquals(a, a_item.getValue());
@@ -16,8 +16,8 @@ class AnimalListItemTest {
 
     @Test
     void setValue() {
-        Animal a = new Animal();
-        Animal b = new Animal();
+        Animal a = new Animal("Pferd");
+        Animal b = new Animal("Affe");
         AnimalListItem a_item = new AnimalListItem(b);
         a_item.setValue(a);
 
@@ -26,7 +26,7 @@ class AnimalListItemTest {
 
     @Test
     void getNext() {
-        Animal b = new Animal();
+        Animal b = new Animal("Pferd");
         AnimalListItem a_item = new AnimalListItem(b);
         AnimalListItem b_item = new AnimalListItem(b);
 
@@ -37,11 +37,19 @@ class AnimalListItemTest {
 
     @Test
     void setNext() {
-        Animal b = new Animal();
+        Animal b = new Animal("Pferd");
         AnimalListItem a_item = new AnimalListItem(b);
         AnimalListItem b_item = new AnimalListItem(b);
         a_item.setNext(b_item);
 
         assertEquals(b_item, a_item.getNext());
+    }
+
+    @Test
+    void testToString() {
+        Animal b = new Animal("Pferd");
+        AnimalListItem a_item = new AnimalListItem(b);
+
+        assertEquals("Pferd", a_item.toString());
     }
 }

@@ -6,6 +6,10 @@ public class AnimalList {
 
     public void add(Animal animal) {
         AnimalListItem new_item = new AnimalListItem(animal);
+        if (head == null) {
+            head = new_item;
+            return;
+        }
         AnimalListItem last_item = head;
         while (last_item.getNext() != null) {
             last_item = last_item.getNext();
@@ -30,11 +34,21 @@ public class AnimalList {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
+        String result = "";
         AnimalListItem item = head;
-        while (item.getNext() != null) {
-            result.append(item).append("->");
+
+        if (head != null) {
+            result = head.toString();
+
+            while (item.getNext() != null) {
+                result += " -> " + item.getNext();
+
+                item = item.getNext();
+            }
+        } else {
+            return "List is empty!";
         }
-        return result.toString();
+
+        return result;
     }
 }
