@@ -5,15 +5,7 @@ public class AnimalListItem {
     private Animal value;
     private AnimalListItem next;
 
-    public AnimalListItem() {
-    }
-
     public AnimalListItem(Animal value) {
-        this.value = value;
-    }
-
-    public AnimalListItem(Animal value, AnimalListItem next) {
-        this.next = next;
         this.value = value;
     }
 
