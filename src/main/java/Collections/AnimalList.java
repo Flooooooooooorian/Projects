@@ -1,5 +1,7 @@
 package Collections;
 
+import java.util.ArrayList;
+
 public class AnimalList {
     private AnimalListItem head;
 
@@ -27,8 +29,7 @@ public class AnimalList {
         while (item.getNext() != null) {
             if (item.getNext().getValue().equals(animal)) {
                 item.setNext(item.getNext().getNext());
-            }
-            if (item.getNext() != null) {
+            } else {
                 item = item.getNext();
             }
         }
@@ -54,7 +55,6 @@ public class AnimalList {
         } else {
             return "List is empty!";
         }
-
         return result;
     }
 }

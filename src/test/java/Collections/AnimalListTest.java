@@ -17,12 +17,30 @@ class AnimalListTest {
     }
 
     @Test
-    void remove() {
+    void removeFirst() {
+        Animal a = new Animal("Affe");
+        Animal b = new Animal("Pferd");
+        AnimalList a_list = new AnimalList();
+
+        a_list.add(a);
+        a_list.add(b);
+
+
+        assertEquals("Affe -> Pferd", a_list.toString());
+
+        a_list.remove(a);
+
+        assertEquals("Pferd", a_list.toString());
+    }
+
+    @Test
+    void removeMultiple() {
         Animal a = new Animal("Affe");
         Animal b = new Animal("Pferd");
         Animal c = new Animal("Affe");
-        Animal d = new Animal("Hund");
-        Animal e = new Animal("Affe");
+        Animal d = new Animal("Affe");
+        Animal e = new Animal("Hund");
+        Animal f = new Animal("Affe");
         AnimalList a_list = new AnimalList();
 
         a_list.add(a);
@@ -30,8 +48,9 @@ class AnimalListTest {
         a_list.add(c);
         a_list.add(d);
         a_list.add(e);
+        a_list.add(f);
 
-        assertEquals("Affe -> Pferd -> Affe -> Hund -> Affe", a_list.toString());
+        assertEquals("Affe -> Pferd -> Affe -> Affe -> Hund -> Affe", a_list.toString());
 
         a_list.remove(a);
 
