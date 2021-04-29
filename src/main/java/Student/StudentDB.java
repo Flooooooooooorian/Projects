@@ -2,6 +2,7 @@ package Student;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class StudentDB {
@@ -19,7 +20,7 @@ public class StudentDB {
     }
 
     public List<Student> list() {
-        return this.students;
+        return List.copyOf(this.students);
     }
 
     public Student randomStudent() {
@@ -62,6 +63,12 @@ public class StudentDB {
         return list;
     }
 
+    public void removeById(String id) {
+        Student removeThisStudent = findFirstById(id);
+        if (removeThisStudent != null) {
+            remove(removeThisStudent);
+        }
+    }
 
     @Override
     public String toString() {

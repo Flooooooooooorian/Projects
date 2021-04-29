@@ -94,6 +94,15 @@ class StudentDBTest {
         assertEquals(new_ComputerScience_students, db.list());
     }
 
+    @Test
+    public void removeById() {
+        StudentDB db = new StudentDB();
+        db.add(new ComputerScienceStudent("1", "", ""));
+
+        db.removeById("1");
+
+        assertEquals(new ArrayList<Student>(), db.list());
+    }
 
     @Test
     public void testFindFirstByIdEmptyDB() {
