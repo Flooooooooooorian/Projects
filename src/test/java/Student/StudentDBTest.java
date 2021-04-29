@@ -1,11 +1,9 @@
 package Student;
 
-import Student.ComputerScienceStudent;
-import Student.StudentDB;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -94,5 +92,46 @@ class StudentDBTest {
 
         db.remove(old_ComputerScience_student);
         assertEquals(new_ComputerScience_students, db.list());
+    }
+
+
+    @Test
+    public void testFindFirstByIdEmptyDB() {
+        StudentDB db = new StudentDB();
+
+        assertNull(db.findFirstById("123"));
+    }
+
+    @Test
+    public void testFindFirstByIdNotInDB() {
+        StudentDB db = new StudentDB();
+        db.add(new ComputerScienceStudent("123", "Max", "Mustermann"));
+
+        assertNull(db.findFirstById("124"));
+    }
+
+    @Test
+    public void testFindFirstByIdMultipleStudents() {
+        StudentDB db = new StudentDB();
+        db.add(new ComputerScienceStudent("123", "Max", "Mustermann"));
+        db.add(new ComputerScienceStudent("123", "Hans", "Köhler"));
+
+        assertEquals(new ComputerScienceStudent("123", "Max", "Mustermann"), db.findFirstById("123"));
+    }
+
+    @Test
+    public void testFindAllById() {
+        StudentDB db = new StudentDB();
+        db.add(new ComputerScienceStudent("1", "Max", "Mustermann"));
+        db.add(new ComputerScienceStudent("2", "Max", "Mustermann"));
+        db.add(new ComputerScienceStudent("1", "Max", "Mustermann"));
+        db.add(new ComputerScienceStudent("1", "Max", "Mustermann"));
+        db.add(new ComputerScienceStudent("5", "Max", "Mustermann"));
+
+        List<Student> list = List.of(new ComputerScienceStudent("1", "Max", "Mustermann"),
+                new ComputerScienceStudent("1", "Max", "Mustermann"),
+                new ComputerScienceStudent("1", "Max", "Mustermann"));
+
+        assertEquals(list, db.findAllById("1"));
     }
 }

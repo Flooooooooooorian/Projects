@@ -34,10 +34,39 @@ public class StudentDB {
         this.students.remove(student);
     }
 
+    public Student findFirstById(String id) {
+        if (id == null) {
+            return null;
+        }
+
+        for (Student student : students) {
+            if (student.getId().equals(id)) {
+                return student;
+            }
+        }
+
+        return null;
+    }
+
+    public List<Student> findAllById(String id) {
+        List<Student> list = new ArrayList<>();
+        if (id == null) {
+            return list;
+        }
+
+        for (Student student : students) {
+            if (student.getId().equals(id)) {
+                list.add(student);
+            }
+        }
+        return list;
+    }
+
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for(Student Student : this.students) {
+        for (Student Student : this.students) {
             sb.append(Student.toString()).append("\n");
         }
         return sb.toString();
