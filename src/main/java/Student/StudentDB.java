@@ -1,39 +1,33 @@
 package Student;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StudentDB {
-    private Student[] students;
+    private ArrayList<Student> students;
 
     public StudentDB() {
-        students = new Student[0];
+        students = new ArrayList<>();
     }
 
-    public StudentDB(Student[] students) {
+    public StudentDB(ArrayList<Student> students) {
         this.students = students;
     }
 
-    public Student[] list() {
+    public List<Student> list() {
         return this.students;
     }
 
     public Student randomStudent() {
-        return students[(int) (students.length * Math.random())];
+        return students.get((int) (students.size() * Math.random()));
     }
 
     public void add(Student student) {
-        Student[] new_students_array = new Student[this.students.length+1];
-        System.arraycopy(this.students, 0, new_students_array, 0, students.length);
-        new_students_array[new_students_array.length-1] = student;
-        this.students = new_students_array;
+        this.students.add(student);
     }
 
     public void remove(Student student) {
-        Student[] new_students_array = new Student[this.students.length-1];
-        for (int i = 0; i < students.length-1; i++) { //fails for all students after the one removed
-            if (!this.students[i].equals(student)){
-                new_students_array[i] = this.students[i];
-            }
-        }
-        this.students = new_students_array;
+        this.students.remove(student);
     }
 
     @Override
