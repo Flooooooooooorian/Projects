@@ -1,17 +1,21 @@
 package Student;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class StudentDB {
-    private ArrayList<Student> students;
+    private final ArrayList<Student> students = new ArrayList<>();
 
     public StudentDB() {
-        students = new ArrayList<>();
     }
 
-    public StudentDB(ArrayList<Student> students) {
-        this.students = students;
+    public StudentDB(Student[] students) {
+        this.students.addAll(List.of(students));
+    }
+
+    public StudentDB(Collection<Student> students) {
+        this.students.addAll(students);
     }
 
     public List<Student> list() {
