@@ -1,79 +1,68 @@
 package Student;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class StudentDB {
-    private final ArrayList<Student> students = new ArrayList<>();
+    private final Map<String, Student> students = new HashMap<>();
 
     public StudentDB() {
     }
 
     public StudentDB(Student[] students) {
-        this.students.addAll(List.of(students));
+        for (Student student : students) {
+            this.students.put(student.getId(), student);
+        }
     }
 
     public StudentDB(Collection<Student> students) {
-        this.students.addAll(students);
+        for (Student student : students) {
+            this.students.put(student.getId(), student);
+        }
     }
 
     public List<Student> list() {
-        return List.copyOf(this.students);
+        return List.copyOf(this.students.values());
     }
 
     public Student randomStudent() {
-        return students.get((int) (students.size() * Math.random()));
+        return (Student) this.students.values().toArray()[(int) (students.size() * Math.random())];
     }
 
     public void add(Student student) {
-        this.students.add(student);
+        this.students.put(student.getId(), student);
     }
 
     public void remove(Student student) {
-        this.students.remove(student);
+        this.students.remove(student.getId());
     }
 
     public Student findFirstById(String id) {
-        if (id == null) {
-            return null;
-        }
-
-        for (Student student : students) {
-            if (student.getId().equals(id)) {
-                return student;
-            }
-        }
-
-        return null;
+        return this.students.get(id);
     }
 
-    public List<Student> findAllById(String id) {
-        List<Student> list = new ArrayList<>();
-        if (id == null) {
-            return list;
-        }
-
-        for (Student student : students) {
-            if (student.getId().equals(id)) {
-                list.add(student);
-            }
-        }
-        return list;
-    }
+//
+//    public List<Student> findAllById(String id) {
+//        List<Student> list = new ArrayList<>();
+//        if (id == null) {
+//            return list;
+//        }
+//
+//        for (Student student : students) {
+//            if (student.getId().equals(id)) {
+//                list.add(student);
+//            }
+//        }
+//        return list;
+//    }
 
     public void removeById(String id) {
-        Student removeThisStudent = findFirstById(id);
-        if (removeThisStudent != null) {
-            remove(removeThisStudent);
-        }
+        this.students.remove(id);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (Student Student : this.students) {
+        for (Student Student : this.students.values()) {
             sb.append(Student.toString()).append("\n");
         }
         return sb.toString();
